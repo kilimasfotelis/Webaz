@@ -8,10 +8,9 @@ namespace Webaz.Controllers
 {
     public class NumberController : Controller
     {
-        // GET: Generate
+        // GET: Number
         public ActionResult Index()
         {
-
             return View();
         }
         [HttpGet]
