@@ -4,5 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Employee list</h2>
+<div>
+<ul>
+    @foreach(Employee employee in @Model)
+    {
+        <li>
+            @Html.ActionLink(employee.Name,"Details", new {id = employee.EmployeeId});
+        </li>
+    }
+</ul>
+</div>
     

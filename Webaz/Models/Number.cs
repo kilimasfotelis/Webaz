@@ -10,9 +10,6 @@ namespace Webaz.Models
     {
         public HashSet<int> Answer { get; set; }
         public Number() { }
-        public string Guess { get; set; }
-        public int GuessCount { get; set; }
-        public string Congratulations { get; set; }
         public string FinalAnswer { get; set; }
         public List<string> Notes { get; set; }
         public void createNotes(List<string> notes)
@@ -24,6 +21,7 @@ namespace Webaz.Models
             this.Answer = answer;
         }
        
+        //konvertuoja atsakyma i string
        public string getAnswer()
         {
             string answer ="";
@@ -42,19 +40,6 @@ namespace Webaz.Models
             
             int number;
             HashSet<int> Answer = new HashSet<int>();
-            //do
-            //{
-            //    Random random = new Random();
-            //    number = random.Next(0, 9999);
-            //    Answer.Clear();
-            //    for (int i = 0; i < 4; i++)
-            //    {
-            //        int digit = number % 10;
-            //        Answer.Add(digit);
-            //        digit = digit / 10;
-            //    }
-            //}
-            //while (Answer.Count < 4);
             while (Answer.Count != 4)
             {
                 Random random = new Random();
@@ -65,18 +50,18 @@ namespace Webaz.Models
 
             return Answer;
         }
+        // priskiriama sugeneruoto skaiciaus reiksme
         public void assignValue()
         {
             Number number = new Number();
             setAnswer(Generate());
         }
-
+        // tikrinama ar ivestas skaicius atitinka sugeneruota
         public Boolean compareValues(string guess, string answer)
         {
             bool ok = false;
             if (guess == answer)
             {
-                Notes.Insert(0, string.Format("Sveikinimai. {0} yra teisingas atsakymas", guess));
                 ok = true;
             }
             else

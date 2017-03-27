@@ -28,10 +28,10 @@ namespace Webaz.Controllers
         [HttpPost]
         public ActionResult Play(string guess)
         {
+
             Number n = (Number)Session["n"];
             if (n.compareValues(guess, n.FinalAnswer))
             {
-                ViewBag.valio = "valio";
                 return RedirectToAction("Win");
             }
             else
@@ -41,7 +41,6 @@ namespace Webaz.Controllers
                 ViewBag.guess = guess;
                 Session["n"] = n;
 
-                Session["answer"] = Session["answer"] as string;
                 return View();
             }
 
@@ -50,7 +49,6 @@ namespace Webaz.Controllers
         public ActionResult Win()
         {
             Number n = (Number)Session["n"];
-            ViewBag.answer = Session["answer"] as string;
             return View();
         }
 
