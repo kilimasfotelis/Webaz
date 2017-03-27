@@ -8,7 +8,7 @@ namespace Webaz.Models
 {
     public class Number
     {
-        public HashSet<int> Answer { get; set; }
+        public string Answer { get; set; }
         public Number() { }
         public string FinalAnswer { get; set; }
         public List<string> Notes { get; set; }
@@ -16,28 +16,12 @@ namespace Webaz.Models
         {
             this.Notes = notes;
         }
-        public void setAnswer(HashSet<int> answer)
-        {
-            this.Answer = answer;
-        }
-       
-        //konvertuoja atsakyma i string
-       public string getAnswer()
-        {
-            string answer ="";
-            foreach (var item in Answer)
-            {
-               answer += item.ToString();
-            }
-            FinalAnswer = answer;
-            return answer;
-        }
+
         //Metodas skaiciui sugeneruoti
-        public HashSet<int> Generate()
+        public void Generate()
         {
-            // Sugeneruojam random skaiciu ir Seta 'Answer', kuriame issaugosime 
-            // to skaiciaus skaitmenis(setas tam, kad visi skaitmenys butu skirtingi
-            
+            //Hashsetas supildomas skaitmenimis
+            //
             int number;
             HashSet<int> Answer = new HashSet<int>();
             while (Answer.Count != 4)
@@ -48,14 +32,16 @@ namespace Webaz.Models
                 Answer.Add(digit);
             }
 
-            return Answer;
+            //Hashsetas paverciamas string'u
+            // 
+            string answer = "";
+            foreach (var item in Answer)
+            {
+                answer += item.ToString();
+            }
+            this.Answer = answer;
         }
-        // priskiriama sugeneruoto skaiciaus reiksme
-        public void assignValue()
-        {
-            Number number = new Number();
-            setAnswer(Generate());
-        }
+       
         // tikrinama ar ivestas skaicius atitinka sugeneruota
         public Boolean compareValues(string guess, string answer)
         {

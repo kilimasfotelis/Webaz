@@ -18,9 +18,9 @@ namespace Webaz.Controllers
         public ActionResult Play()
         {
             Number n = new Number();
-            n.assignValue();
-            string answer = n.getAnswer();
+            n.Generate();
             n.createNotes(new List<string>());
+            string answer = n.Answer;
             Session["answer"] = answer;
             Session["n"] = n;
             return View();
@@ -30,7 +30,7 @@ namespace Webaz.Controllers
         {
 
             Number n = (Number)Session["n"];
-            if (n.compareValues(guess, n.FinalAnswer))
+            if (n.compareValues(guess, n.Answer))
             {
                 return RedirectToAction("Win");
             }
@@ -38,7 +38,6 @@ namespace Webaz.Controllers
             {
                 ViewBag.list = n.Notes;
 
-                ViewBag.guess = guess;
                 Session["n"] = n;
 
                 return View();
