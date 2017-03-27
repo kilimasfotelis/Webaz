@@ -36,9 +36,6 @@ namespace Webaz.Controllers
             else
             {
                 ViewBag.list = n.Notes;
-
-                Session["n"] = n;
-
                 return View();
             }
 
@@ -47,9 +44,8 @@ namespace Webaz.Controllers
         public ActionResult Win()
         {
             Number n = (Number)Session["n"];
+            ViewBag.count = n.Notes.Count();
             return View();
         }
-
-      
     }
 }

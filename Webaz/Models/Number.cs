@@ -43,6 +43,7 @@ namespace Webaz.Models
         }
        
         // tikrinama ar ivestas skaicius atitinka sugeneruota
+        // jeigu neatitinka tuomet deda ji i sarasa
         public Boolean compareValues(string guess, string answer)
         {
             bool ok = false;
