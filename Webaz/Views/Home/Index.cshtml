@@ -1,21 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Puslapis";
 }
 
-<h2>Index</h2>
-<ul>
-    @foreach (string asd in ViewBag.asdf)
-    {
-        <li>@asd</li>
-    }
-    </ul>
-@using (Html.BeginForm())
-{
-    @Html.Label("Skaicius")<br />
-    @Html.TextBox("Skaicius")<br />
-    <button type="submit">Bandyt</button>
-    <button type="reset">Pradet</button>
+<h1>Mastermind:</h1>
 
-    <button onclick="location.href='@Url.Action("play")';return false;">Nu</button>
-}
+
+    <button onclick="location.href='@Url.Action("play", "number")';return false;">Start</button>

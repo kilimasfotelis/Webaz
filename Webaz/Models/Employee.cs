@@ -13,4 +13,5 @@ namespace Webaz.Models
         public string Gender { get; set; }
         public string City { get; set; }
     }
+    
 }

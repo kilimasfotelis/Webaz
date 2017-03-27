@@ -9,6 +9,12 @@ namespace Webaz.Controllers
 {
     public class EmployeeController : Controller
     {
+        public ActionResult Index()
+        {
+            EmployeeContext employeeContext = new EmployeeContext();
+            List<Employee> employees = employeeContext.Employees.ToList();
+            return View(employees);
+        }
         // GET: Employee
         public ActionResult Details(int id)
         {
