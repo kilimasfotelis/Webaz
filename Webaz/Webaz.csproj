@@ -113,7 +113,6 @@
     </Content>
     <Content Include="Views\Employee\Details.cshtml" />
     <Content Include="Views\Number\Index.cshtml" />
-    <Content Include="Views\Home\Play.cshtml" />
     <Content Include="Views\Number\Play.cshtml" />
   </ItemGroup>
   <ItemGroup>

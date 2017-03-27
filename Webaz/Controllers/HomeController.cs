@@ -11,17 +11,6 @@ namespace Webaz.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            ViewBag.asdf = new List<string>()
-        {
-            "a",
-            "abcd1"
-        };
-            return View();
-        }
-        public ActionResult Play()
-        {
-          
-            ViewBag.zodis = "sugeneruota";
             return View();
         }
     }
